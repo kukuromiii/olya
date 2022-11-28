@@ -10,7 +10,7 @@ class Student:
         self.alive = True
 
 
-# все предметы
+# усі предмети
 
 class Lessons(Student):
     def math(self):
@@ -145,9 +145,10 @@ class Pause(Lessons):
         self.today_satiety += 2
 
 
-    # рандомные предметы
+    # рандомні предмети
 
     def study(self):
+        print(f'День {day:^5d} з життя {self.first_name}а')
         print('Час вчитися')
         cube = random.randint(1, 19)
         if cube == 1:
@@ -191,7 +192,6 @@ class Pause(Lessons):
 
 
     def get_today(self, day):
-        print(f'День {day:^5d} з життя {self.first_name}а')
         print(f'Настрій = {self.today_mood}')
         print(f'Енергія = {self.energy}')
         print(f'Ситість = {self.today_satiety}')
@@ -212,15 +212,15 @@ class Pause(Lessons):
     def life(self):
         if self.knowledge > 10:
             print('Склав іспит')
-        if self.knowledge < 10:
+        elif self.knowledge < -10:
             print('Відрахований')
-        if self.today_satiety < 10:
+        elif self.today_satiety < -10:
             print('Вмер...')
             self.alive = False
-        if self.energy < 10:
+        elif self.energy < -10:
             print('Вмер...')
             self.alive = False
-        if self.today_mood < 10:
+        elif self.today_mood < -10:
             print('Депресія...')
             self.alive = False
 
