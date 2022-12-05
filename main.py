@@ -4,9 +4,9 @@ class Student:
     def __init__(self, first_name):
         self.first_name = first_name
         self.knowledge = 0
-        self.today_mood = 10
-        self.energy = 10
-        self.today_satiety = 10
+        self.today_mood = 15
+        self.energy = 15
+        self.today_satiety = 15
         self.alive = True
 
 
@@ -17,43 +17,43 @@ class Lessons(Student):
         self.knowledge += 1
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def biology(self):
         self.knowledge += 1
         self.today_mood -= 0.5
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def geography(self):
         self.knowledge += 1
         self.today_mood -= 0.5
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def english(self):
         self.knowledge += 1
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def german(self):
         self.knowledge += 0.5
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def chinese(self):
         self.knowledge += 0.5
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def spanish(self):
         self.knowledge += 1
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def pe(self):
         self.today_mood += 1
@@ -64,67 +64,67 @@ class Lessons(Student):
         self.knowledge += 1
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def business(self):
         self.knowledge += 1
         self.today_mood -= 1
         self.energy -= 1
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def physics(self):
         self.knowledge += 0.5
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def chemistry(self):
         self.knowledge += 0.5
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def python(self):
         self.knowledge += 1
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def blender(self):
         self.knowledge += 0.5
         self.today_mood -= 1
         self.energy -= 1
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def ukr_literature(self):
         self.knowledge += 1
         self.today_mood += 1
         self.energy -= 1
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def world_literature(self):
         self.knowledge += 1
         self.today_mood += 1
         self.energy -= 1
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def ukr_language(self):
         self.knowledge += 1
         self.today_mood += 1
         self.energy -= 2
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def civil_education(self):
         self.knowledge += 0.5
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
     def national_defense(self):
         self.knowledge += 0.5
         self.today_mood -= 1
         self.energy -= 1.5
-        self.today_satiety -= 1
+        self.today_satiety -= 0.5
 
 
 class Pause(Lessons):
@@ -136,13 +136,13 @@ class Pause(Lessons):
 
     def sleep(self):
         print('Час спати')
-        self.knowledge -= 1
+        self.knowledge -= 2
         self.energy += 2
 
 
     def lunch(self):
         print('Час їсти')
-        self.today_satiety += 2
+        self.today_satiety += 3
 
 
     # рандомні предмети
@@ -215,10 +215,10 @@ class Pause(Lessons):
         elif self.knowledge < -10:
             print('Відрахований')
         elif self.today_satiety < -10:
-            print('Вмер...')
+            print('Вмер від голоду...')
             self.alive = False
         elif self.energy < -10:
-            print('Вмер...')
+            print('Вмер від перевтоми...')
             self.alive = False
         elif self.today_mood < -10:
             print('Депресія...')
@@ -231,3 +231,5 @@ for day in range(1, 100):
         break
     student.get_today(day)
     student.pause()
+    student.study()
+    student.life()
